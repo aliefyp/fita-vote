@@ -2,21 +2,13 @@ import React, { memo } from 'react';
 import { cx } from '@emotion/css';
 import { styCard, styCardLoader } from './NomineeCardStyle';
 
-const NomineeCard = ({ loading, movie, selected, onVote }) => {
+const NomineeCard = ({ movie, selected, disableOnHover, onVote }) => {
   const handleVote = () => {
-    onVote(movie.id)
-  }
-
-  if (loading) {
-    return (
-      <div className={cx([styCard, styCardLoader])}>
-        
-      </div>
-    )
+    onVote(movie)
   }
 
   return (
-    <div className={cx([styCard, (selected && 'selected')])}>
+    <div className={cx([styCard, (selected && 'selected'), (disableOnHover && 'disabled')])}>
       <img src={movie.photoUrL} alt={movie.id} loading="lazy" />
       <div className="description">
         <h3>{movie.title}</h3>

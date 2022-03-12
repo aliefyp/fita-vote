@@ -76,7 +76,8 @@ export const styFooter = css`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  background-image: ${`linear-gradient(to top, ${Colors.black}, 95%, transparent)`};
+  background-color: ${Colors.black};
+  /* background-image: ${`linear-gradient(to top, ${Colors.black}, 95%, transparent)`}; */
   z-index: 2;
 
   button {

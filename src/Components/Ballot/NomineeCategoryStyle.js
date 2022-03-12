@@ -18,7 +18,7 @@ export const styGrid = css`
 `;
 
 export const styCategoryTitle = css`
-  padding: 12px 24px;
+  padding: 24px 24px 12px;
   margin: 0;
   position: sticky;
   top: 0;
@@ -27,7 +27,8 @@ export const styCategoryTitle = css`
   text-align: left;
   z-index: 1;
   font-size: 1.8rem;
-  background-image: ${`linear-gradient(to bottom, ${Colors.black}, 70%, transparent)`};
+  font-weight: 900;
+  background-image: ${`linear-gradient(to bottom, ${Colors.black}, 80%, transparent)`};
 `;
 
 export const styCategoryContainer = css`

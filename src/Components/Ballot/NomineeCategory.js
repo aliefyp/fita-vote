@@ -16,7 +16,7 @@ const NomineeCategory = ({ category, selected, onVote }) => {
             <NomineeCard
               key={movie.id}
               movie={movie}
-              selected={selected?.[category.id] === movie.id}
+              selected={selected?.[category.id]?.id === movie.id}
               onVote={handleVote}
             />
           ))}

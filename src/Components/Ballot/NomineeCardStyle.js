@@ -23,6 +23,10 @@ export const styCard = css`
     border-color: ${Colors.green};
   }
 
+  &.disabled {
+    pointer-events: none;
+  }
+
   .description {
     display: flex;
     flex-direction: column;
