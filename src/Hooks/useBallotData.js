@@ -12,7 +12,11 @@ const useBallotData = () => {
         else throw new Error('Gagal memuat data')
       })
       .catch(err => console.log(err))
-      .finally(() => setLoading(false))
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false)
+        }, 1000);
+      })
   }, []);
 
   useEffect(() => {

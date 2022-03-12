@@ -1,29 +1,106 @@
+import { css } from '@emotion/css';
+import { Colors } from '../constants';
 
-import { injectGlobal, css } from '@emotion/css'
+export const styBanner = css`
+  width: 100%;
+  height: 100vh;
+  background-image: url('/banner.jpeg');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 48px;
+  padding: 32px;
+  width: 100vw;
+  overflow: hidden;
 
-injectGlobal`
-  * {
-    box-sizing: border-box;
+  @media screen and (min-width: 1024px) {
+    padding: 64px;
+    height: unset;
   }
-  @font-face {
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-  }
-`
 
-export const styGrid = css`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  &:before {
+    content: '';
+    filter: blur(4px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 150%;
+    height: 150%;
+    transform: translateX(-10%);
+    background-image: ${`linear-gradient(to top, ${Colors.black}, 90%, transparent)`};
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+  }
+
+  h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    line-height: 0.85;
+    font-weight: 900;
+    text-align: left;
+    z-index: 1;
+    margin: 0;
+    /* text-shadow: 4px 2px 4px ${Colors.black}; */
+
+    span {
+      color: ${Colors.green};
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 5rem;
+    }
+  }
 `;
 
-export const styCategoryTitle = css`
-  padding: 12px 24px;
-  position: sticky;
-  top: 0;
+export const styWrapper = css`
+  max-width: 1024px;
+  margin: 0 auto 160px;
+`;
+
+export const styFooter = css`
+  padding: 16px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  height: 100%;
-  text-align: left;
-  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  background-image: ${`linear-gradient(to top, ${Colors.black}, 95%, transparent)`};
+  z-index: 2;
+
+  button {
+    padding: 16px 0;
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: ${Colors.green};
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+    &:hover {
+      transform: scale(105%);
+    }
+
+    &:active {
+      transform: scale(90%);
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 400px;
+    }
+  }
 `;
