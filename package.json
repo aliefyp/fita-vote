@@ -16,12 +16,12 @@
   },
   "scripts": {
     "start": "run-p start:**",
+    "start:app": "react-scripts start",
+    "start:server": "cd api && npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "now-build": "react-scripts build && mv build dist",
-    "frontend": "react-scripts start",
-    "backend": "cd api && npm start"
+    "now-build": "react-scripts build && mv build dist"
   },
   "eslintConfig": {
     "extends": [
