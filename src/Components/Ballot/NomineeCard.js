@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { cx } from '@emotion/css';
-import { styCard, styCardLoader } from './NomineeCardStyle';
+import { styCard } from './NomineeCardStyle';
 
 const NomineeCard = ({ movie, selected, disableOnHover, onVote }) => {
   const handleVote = () => {

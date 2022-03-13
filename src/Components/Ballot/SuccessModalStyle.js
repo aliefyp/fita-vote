@@ -1,5 +1,5 @@
 import { css, keyframes } from '@emotion/css';
-import { Colors } from '../constants';
+import { Breakpoints, Colors } from '../constants';
 
 const pop = keyframes`
   0% {
@@ -26,7 +26,7 @@ export const styModalOverlay = css`
 
 export const styModalContainer = css`
   background-color: ${Colors.black};
-  margin: 15% auto;
+  margin: 80px auto 0;
   padding: 32px 16px 16px;
   width: auto;
   max-width: 80vw;
@@ -35,8 +35,8 @@ export const styModalContainer = css`
   display: inline-block;
   animation: ${pop} 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  @media screen and (min-width: 768px) {
-    padding: 64px 32px 32px;
+  @media screen and (min-width: ${Breakpoints.sm}) {
+    padding: 64px 24px 32px;
   }
 
   * {
@@ -67,7 +67,7 @@ export const styModalContainer = css`
       transform: scale(90%);
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${Breakpoints.sm}) {
       width: 400px;
     }
   }
@@ -79,11 +79,11 @@ export const styVoteList = css`
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin: 40px auto;
+  margin: 40px auto 24px;
   position: relative;
 
   div {
-    width: 120px;
+    width: 100px;
     display: flex;
     flex-direction: column;
 
@@ -95,7 +95,7 @@ export const styVoteList = css`
       flex-grow: 1;
       border-radius: 8px;
       width: 100%;
-      height: 100%;
+      height: 150px;
       object-fit: cover;
     }
   }

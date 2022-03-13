@@ -30,21 +30,40 @@ injectGlobal`
 `
 
 const Ballot = () => {
-  const [voteData, setVoteData] = useState({});
+  const [voteData, setVoteData] = useState(null);
   const [showPopup, setShopPopup] = useState(false);
   const { data, loading } = useBallotData();
 
   const hasVoting = useMemo(() => {
+    if (!voteData) return false;
+
     const keys = Object.keys(voteData);
     return keys.some(k => voteData[k] !== '');
   }, [voteData])
 
-  const handleVote = (category, nominee) => {
+  const handleScrollToNextSection = useCallback(category => {
+    const keys = Object.keys(voteData);
+    const currentIndex = keys.findIndex(k => k === category);
+    const nextSection = document.getElementById(`#${keys[currentIndex + 1]}`);
+
+    if (nextSection) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: nextSection.offsetTop,
+          behavior: 'smooth',
+        })
+      }, 300)
+    }
+  }, [voteData]);
+
+  const handleVote = useCallback((category, nominee) => {
     setVoteData({
       ...voteData,
       [category]: nominee,
     })
-  }
+
+    handleScrollToNextSection(category);
+  }, [handleScrollToNextSection, voteData])
 
   const handleSubmit = useCallback(() => {
     if (!hasVoting) {
@@ -89,7 +108,7 @@ const Ballot = () => {
         ))}
       </div>
       <div className={styFooter}>
-        <button onClick={handleSubmit}>{hasVoting ? 'Vote!' : 'Start Voting'}</button>
+        <button onClick={handleSubmit}>{hasVoting ? 'Sumbit Vote!' : 'Start Voting'}</button>
       </div>
       <SuccessModal
         show={showPopup}

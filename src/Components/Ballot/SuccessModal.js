@@ -10,9 +10,9 @@ const SuccessModal = ({ show, categoryData, voteData, onClose }) => {
   }
 
   return (
-    <div className={styModalOverlay}>
+    <div className={styModalOverlay} onClick={handleOnClose}>
       <div className={styModalContainer}>
-        {/* <span /> */}
+        <span className="close" />
         <h2>THANK YOU</h2>
         <p>for your vote</p>
         <div className={styVoteList}>

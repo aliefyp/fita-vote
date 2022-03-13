@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { Colors } from '../constants';
+import { Breakpoints, Colors } from '../constants';
 
 export const styBanner = css`
   width: 100%;
@@ -100,7 +100,7 @@ export const styFooter = css`
       transform: scale(90%);
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${Breakpoints.sm}) {
       width: 400px;
     }
   }

@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { Colors } from '../constants';
+import { Breakpoints, Colors } from '../constants';
 
 export const styLoaderGrid = css`
   display: grid;
@@ -7,11 +7,11 @@ export const styLoaderGrid = css`
   padding: 0 16px;
   grid-template-columns: repeat(2, 1fr);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${Breakpoints.sm}) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: ${Breakpoints.md}) {
     grid-template-columns: repeat(5, 1fr);
   }
 `;

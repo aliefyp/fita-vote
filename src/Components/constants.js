@@ -5,3 +5,9 @@ export const Colors = {
   green: '#009B86',
   green2: '#34AC9C',
 }
+
+export const Breakpoints = {
+  sm: '768px',
+  md: '1024px',
+  lg: '1280px',
+}
