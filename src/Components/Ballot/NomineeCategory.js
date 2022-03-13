@@ -9,8 +9,10 @@ const NomineeCategory = ({ category, selected, onVote }) => {
 
   return (
     <>
-      <div className={styCategoryContainer} id={`#${category.id}`}>
-        <h2 className={styCategoryTitle}>{category.title.toUpperCase()}</h2>
+      <div className={styCategoryContainer} id={`#${category.id}`} data-testid="divNomineeCategory">
+        <h2 className={styCategoryTitle} data-testid="divNomineeCategoryTitle">
+          {category.title.toUpperCase()}
+        </h2>
         <div className={styGrid}>
           {category.items.map(movie => (
             <NomineeCard

@@ -27,10 +27,6 @@ export const styCard = css`
     }
   }
 
-  &.disabled {
-    pointer-events: none;
-  }
-
   .description {
     display: flex;
     flex-direction: column;
@@ -42,6 +38,7 @@ export const styCard = css`
     right: 0;
     bottom: 0;
     padding: 16px;
+    opacity: 0;
     transform: translateY(100%);
     transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
     background-image: ${`linear-gradient(to top, ${Colors.black}, 70%, transparent)`};
@@ -80,6 +77,7 @@ export const styCard = css`
     }
 
     .description {
+      opacity: 1;
       transform: translateY(0);
     }
   }

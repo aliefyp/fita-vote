@@ -5,7 +5,7 @@ const Loader = () => {
   return (
     <div className={styLoaderGrid}>
       {[...new Array(5)].map((_, index) => (
-        <div key={index} className={styLoaderCard} />
+        <div key={index} className={styLoaderCard} data-testid="divLoader" />
       ))}
     </div>
   );

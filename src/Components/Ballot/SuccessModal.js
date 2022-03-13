@@ -1,7 +1,7 @@
 import React from 'react';
 import { styModalContainer, styModalOverlay, styVoteList } from './SuccessModalStyle';
 
-const SuccessModal = ({ show, categoryData, voteData, onClose }) => {
+const SuccessModal = ({ show, categoryData, voteData }) => {
   if (!show) return null;
 
   const handleOnClose = () => {
@@ -10,7 +10,7 @@ const SuccessModal = ({ show, categoryData, voteData, onClose }) => {
   }
 
   return (
-    <div className={styModalOverlay} onClick={handleOnClose}>
+    <div className={styModalOverlay} onClick={handleOnClose} data-testid="divSuccessModal">
       <div className={styModalContainer}>
         <span className="close" />
         <h2>THANK YOU</h2>
@@ -23,7 +23,7 @@ const SuccessModal = ({ show, categoryData, voteData, onClose }) => {
             const categoryTitle = categoryData.find(i => i.id === key)?.title;
 
             return (
-              <div key={key}>
+              <div key={key} data-testid="divSuccessModalItem">
                 <img src={item.photoUrL} alt={item.id} loading="lazy" />
                 <p>{categoryTitle}</p>
               </div>
