@@ -21,6 +21,10 @@ export const styCard = css`
 
   &.selected {
     border-color: ${Colors.green};
+
+    .description button {
+      background-color: ${Colors.grey};
+    }
   }
 
   &.disabled {

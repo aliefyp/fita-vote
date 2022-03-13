@@ -4,7 +4,7 @@ import { styCard } from './NomineeCardStyle';
 
 const NomineeCard = ({ movie, selected, disableOnHover, onVote }) => {
   const handleVote = () => {
-    onVote(movie)
+    if (!selected) onVote(movie)
   }
 
   return (

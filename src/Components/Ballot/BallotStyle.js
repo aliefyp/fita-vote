@@ -51,7 +51,6 @@ export const styBanner = css`
     text-align: left;
     z-index: 1;
     margin: 0;
-    /* text-shadow: 4px 2px 4px ${Colors.black}; */
 
     span {
       color: ${Colors.green};
@@ -69,15 +68,14 @@ export const styWrapper = css`
 `;
 
 export const styFooter = css`
-  padding: 16px;
+  padding: 32px 16px 16px;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  background-color: ${Colors.black};
-  /* background-image: ${`linear-gradient(to top, ${Colors.black}, 95%, transparent)`}; */
+  background-image: ${`linear-gradient(to top, ${Colors.black}, 90%, transparent)`};
   z-index: 2;
 
   button {
@@ -88,7 +86,7 @@ export const styFooter = css`
     background-color: ${Colors.green};
     font-weight: 900;
     font-size: 1.2rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     cursor: pointer;
     transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
     

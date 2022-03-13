@@ -23,7 +23,7 @@ const SuccessModal = ({ show, categoryData, voteData, onClose }) => {
             const categoryTitle = categoryData.find(i => i.id === key)?.title;
 
             return (
-              <div>
+              <div key={key}>
                 <img src={item.photoUrL} alt={item.id} loading="lazy" />
                 <p>{categoryTitle}</p>
               </div>

@@ -108,7 +108,7 @@ const Ballot = () => {
         ))}
       </div>
       <div className={styFooter}>
-        <button onClick={handleSubmit}>{hasVoting ? 'Sumbit Vote!' : 'Start Voting'}</button>
+        <button onClick={handleSubmit}>{hasVoting ? 'Sumbit Votes!' : 'Start Voting'}</button>
       </div>
       <SuccessModal
         show={showPopup}
