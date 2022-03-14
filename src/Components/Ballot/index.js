@@ -5,7 +5,7 @@ import { Colors } from '../constants';
 import NomineeCategory from '../NomineeCategory';
 import Loader from '../Loader';
 import SuccessModal from '../SuccessModal';
-import { styBanner, styWrapper, styFooter } from './BallotStyle';
+import { styBanner, styWrapper, styFooter, styError } from './BallotStyle';
 
 injectGlobal`
   * {
@@ -32,7 +32,7 @@ injectGlobal`
 const Ballot = () => {
   const [voteData, setVoteData] = useState(null);
   const [showPopup, setShopPopup] = useState(false);
-  const { data, loading } = useBallotData();
+  const { data, loading, error } = useBallotData();
 
   const hasVoting = useMemo(() => {
     if (!voteData) return false;
@@ -41,18 +41,23 @@ const Ballot = () => {
     return keys.some(k => voteData[k] !== '');
   }, [voteData])
 
+  // scroll to next category section after vote a category
   const handleScrollToNextSection = useCallback(category => {
-    const keys = Object.keys(voteData);
-    const currentIndex = keys.findIndex(k => k === category);
-    const nextSection = document.getElementById(`#${keys[currentIndex + 1]}`);
-
-    if (nextSection) {
-      setTimeout(() => {
-        window.scrollTo({
-          top: nextSection.offsetTop,
-          behavior: 'smooth',
-        })
-      }, 300)
+    try {
+      const keys = Object.keys(voteData);
+      const currentIndex = keys.findIndex(k => k === category);
+      const nextSection = document.getElementById(`#${keys[currentIndex + 1]}`);
+  
+      if (nextSection) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: nextSection.offsetTop,
+            behavior: 'smooth',
+          })
+        }, 300)
+      }
+    } catch(err) {
+      console.error(err);
     }
   }, [voteData]);
 
@@ -97,6 +102,12 @@ const Ballot = () => {
         <h1><span>FITA</span> MOVIE<br />FAN VOTE<br />2022</h1>
       </div>
       <div className={styWrapper} id="content">
+        {error && (
+          <div className={styError}>
+            <img src="/icon_error.svg" alt="icon-error" />
+            <h3>{error}</h3>
+          </div>
+        )}
         {loading && <Loader />}
         {!loading && data?.map(category => (
           <NomineeCategory

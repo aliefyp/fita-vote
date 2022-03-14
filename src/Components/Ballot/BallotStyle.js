@@ -103,3 +103,21 @@ export const styFooter = css`
     }
   }
 `;
+
+export const styError = css`
+  margin: 32px auto;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  img {
+    width: 200px;
+    margin-bottom: 32px;
+
+    @media screen and (min-width: ${Breakpoints.sm}) {
+      width: 400px;
+    }
+  }
+`

@@ -11,6 +11,7 @@ import api from '../Api/Api';
 const useBallotData = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
 
   const fetchBallotData = useCallback(() => {
     api.getBallotData()
@@ -18,7 +19,10 @@ const useBallotData = () => {
         if (res.items) setData(res.items);
         else throw new Error('Gagal memuat data')
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.error(err);
+        setError(err.message);
+      })
       .finally(() => {
         setTimeout(() => {
           setLoading(false)
@@ -30,7 +34,7 @@ const useBallotData = () => {
     fetchBallotData();
   }, [fetchBallotData]);
 
-  return { data, loading };
+  return { data, loading, error };
 }
 
 export default useBallotData;
