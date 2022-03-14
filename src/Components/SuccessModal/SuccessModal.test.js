@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import SuccessModal from './SuccessModal';
+import SuccessModal from '../SuccessModal';
 
 const mockVoteData = {
   "best-picture": "Nomadland",

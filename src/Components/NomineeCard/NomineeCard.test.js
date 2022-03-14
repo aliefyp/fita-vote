@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import NomineeCard from './NomineeCard';
+import NomineeCard from '../NomineeCard';
 
 const mockOnVote = jest.fn();
 const mockMovieData = {

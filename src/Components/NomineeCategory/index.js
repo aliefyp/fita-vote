@@ -1,6 +1,6 @@
 import React from 'react';
 import { styGrid, styCategoryContainer, styCategoryTitle } from './NomineeCategoryStyle';
-import NomineeCard from './NomineeCard';
+import NomineeCard from '../NomineeCard';
 
 const NomineeCategory = ({ category, selected, onVote }) => {
   const handleVote = nominee => {

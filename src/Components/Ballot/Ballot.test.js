@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import useBallotData from '../../Hooks/useBallotData';
-import Ballot from './Ballot';
+import Ballot from '../Ballot';
 
 jest.mock('../../Hooks/useBallotData');
 

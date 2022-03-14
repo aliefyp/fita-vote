@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import { injectGlobal } from '@emotion/css';
 import useBallotData from '../../Hooks/useBallotData';
 import { Colors } from '../constants';
-import NomineeCategory from './NomineeCategory';
-import Loader from './Loader';
-import SuccessModal from './SuccessModal';
+import NomineeCategory from '../NomineeCategory';
+import Loader from '../Loader';
+import SuccessModal from '../SuccessModal';
 import { styBanner, styWrapper, styFooter } from './BallotStyle';
 
 injectGlobal`

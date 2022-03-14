@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import NomineeCategory from './NomineeCategory';
+import NomineeCategory from '../NomineeCategory';
 
 const mockOnVote = jest.fn();
 const mockSelected = {
